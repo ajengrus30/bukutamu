@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    .containerHead
+        h1 Buku Tamu
+    .containerContent
+        .titleContent Add Data
+         form.formInput(role='form',method='post' action='/customers/add')
+                    .row
+
+                        .col-xs-6
+                            .box-body
+                                - if (messages.msg_error)
+                                    .alert.alert-danger.alert-dismissable
+                                        button.close(type='button', datadismiss='alert', aria-hidden='true')
+                                            | ×
+                                        h4
+                                            i.icon.fa.fa-ban
+                                            | Alert!
+                                        | !{messages.msg_error}
+                                .form-group
+                                    label.labelInput
+                                        | Name
+                                    input(type='text',value='#{name}',name='name', autofocus).form-control
+                                .form-group
+                                    label.labelInput
+                                        | Address 
+                                    input(type='text',name='address').form-control
+                                .form-group
+                                    label.labelInput
+                                        | Email
+                                    input(type='text',value='#{email}',name='email').form-control
+                                .form-group
+                                    label.labelInput
+                                        | Phone
+                                    input(type='text',name='phone').form-control
+                                .box-footer
+                                   button(type='submit').btn.btn-primary
+                                        | Submit
+                                    button(href='/customers').btn.btn-Back
+                                        | Back
